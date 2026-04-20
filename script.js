@@ -240,7 +240,7 @@ const PROJECT_DETAILS = {
   "hackpad": {
     title: "HackPad",
     description: "Custom macropad with 6 switches, a rotary encoder (volume control), an OLED display (animations per key), and an RP2040 microcontroller. Can be used for different tasks while working. PCB designed in KiCad, enclosure designed in Fusion 360.",
-    images: ["images/pcb.hackpad.png"],
+    images: ["images/banner hackpad.png", "images/pcb.hackpad.png"],
     video: null,
     github: [{ url: "https://github.com/Gabouin/Gab-s-Hackpad", label: "GitHub" }],
     hackclub: [{ url: "https://blueprint.hackclub.com/projects/13108", label: "Hack Club" }]
@@ -342,9 +342,9 @@ function buildLinksHTML(key) {
 function buildModalImagesHTML(key) {
   const d = PROJECT_DETAILS[key];
   if (!d || !d.images || !d.images.length) return '';
-  var imgClass = key === 'hackpad' ? 'modal-thumb modal-thumb-square' : 'modal-thumb';
   return '<div class="modal-images">' +
-    d.images.map(function(src) {
+    d.images.map(function(src, i) {
+      var imgClass = (key === 'hackpad' && i > 0) ? 'modal-thumb modal-thumb-square' : 'modal-thumb';
       return '<img src="' + src + '" alt="" class="' + imgClass + '" />';
     }).join('') +
     '</div>';

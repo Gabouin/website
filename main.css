@@ -974,10 +974,10 @@ ul {
 /* ── Modal: images, video, links ── */
 .modal-images {
     display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin: 14px 0 4px;
-    justify-content: center;
+    flex-direction: column;
+    gap: 0px;
+    margin: 22px 0 4px;
+    align-items: center;
 }
 
 .modal-thumb {
@@ -991,7 +991,7 @@ ul {
 }
 
 .modal-thumb-square {
-    width: min(82vw, 460px);
+    width: min(60vw, 300px);
     aspect-ratio: 1 / 1;
     object-position: center;
 }
