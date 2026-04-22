@@ -3,7 +3,7 @@
 
 # Gabin Tavernier — Portfolio Website
 
-Personal portfolio website presenting projects in aerospace, electronics, embedded systems, and software.
+Personal portfolio website presenting all my projects in different domains. It also include contact, skills and about me pages and is in constant evolution as I make new project and add cool features to the website.
 
 🌐 Live website: [gabintavernier.com](https://gabintavernier.com)
 
