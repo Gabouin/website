@@ -1240,6 +1240,10 @@ ul {
 
 /* ── Mobile overrides (≤768px) ── */
 @media (max-width: 768px) {
+    #binary-canvas {
+        display: none;
+    }
+
     #header {
         display: block;
         padding: 10px 0;
@@ -1257,7 +1261,38 @@ ul {
     #hero {
         flex-direction: column;
         padding: 2rem 1.5rem;
+        margin: 2rem 1rem 0;
         text-align: center;
+    }
+
+    .projects-grid {
+        padding: 0 1rem;
+    }
+
+    #project-filters {
+        padding: 0 1rem;
+        gap: 10px 14px;
+    }
+
+    #project-filters .filter-group {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    #project-filters .filter-group:nth-child(2) {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+
+    #project-filters .filter-group:nth-child(2)::-webkit-scrollbar {
+        display: none;
+    }
+
+    #project-filters .filter-group:nth-child(2) .filter-label,
+    #project-filters .filter-group:nth-child(2) .filter-btn {
+        flex-shrink: 0;
     }
 
     #hero-text {
