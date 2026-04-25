@@ -81,6 +81,43 @@ const TRANSLATIONS = {
   "filter-advanced":   { en: "Advanced",      fr: "Avancé" }
 };
 
+const PROJECT_TAG_TRANSLATIONS = {
+  "RC Electronics": { en: "RC Electronics", fr: "Electronique RC" },
+  "Aerodynamics": { en: "Aerodynamics", fr: "Aerodynamique" },
+  "Servo Control": { en: "Servo Control", fr: "Controle de servos" },
+  "JavaScript": { en: "JavaScript", fr: "JavaScript" },
+  "Game Dev": { en: "Game Dev", fr: "Developpement de jeu" },
+  "Bitmap": { en: "Bitmap", fr: "Bitmap" },
+  "CAD": { en: "CAD", fr: "CAO" },
+  "Electronics": { en: "Electronics", fr: "Electronique" },
+  "Motor": { en: "Motor", fr: "Moteur" },
+  "RP2040": { en: "RP2040", fr: "RP2040" },
+  "KMK": { en: "KMK", fr: "KMK" },
+  "PCB Design": { en: "PCB Design", fr: "Conception PCB" },
+  "Embedded Systems": { en: "Embedded Systems", fr: "Systemes embarques" },
+  "KiCad": { en: "KiCad", fr: "KiCad" },
+  "ESP32": { en: "ESP32", fr: "ESP32" },
+  "C++ (arduino IDE)": { en: "C++ (arduino IDE)", fr: "C++ (Arduino IDE)" },
+  "Spotify API": { en: "Spotify API", fr: "API Spotify" },
+  "SPI Display": { en: "SPI Display", fr: "Ecran SPI" },
+  "Aerospace": { en: "Aerospace", fr: "Aerospatial" },
+  "Sensors": { en: "Sensors", fr: "Capteurs" },
+  "C++": { en: "C++", fr: "C++" },
+  "AI": { en: "AI", fr: "IA" },
+  "Robotics": { en: "Robotics", fr: "Robotique" },
+  "Raspberry Pi": { en: "Raspberry Pi", fr: "Raspberry Pi" },
+  "Python": { en: "Python", fr: "Python" },
+  "REST API": { en: "REST API", fr: "API REST" },
+  "Web Server": { en: "Web Server", fr: "Serveur web" },
+  "Light Weight 3D Printing": { en: "Light Weight 3D Printing", fr: "Impression 3D legere" },
+  "Basic Hardware": { en: "Basic Hardware", fr: "Materiel de base" },
+  "Heating elements": { en: "Heating elements", fr: "Elements chauffants" },
+  "TTL Logic": { en: "TTL Logic", fr: "Logique TTL" },
+  "Electronic Simulation": { en: "Electronic Simulation", fr: "Simulation electronique" },
+  "integrated circuits": { en: "integrated circuits", fr: "circuits integres" },
+  "USB 2.0": { en: "USB 2.0", fr: "USB 2.0" }
+};
+
 const PROJECT_DETAILS_FR = {
   "rc-plane":       { title: "Avion radiocommandé",           description: "Avion RC construit avec du polystyrène et des pièces imprimées en 3D. Utilise des servomoteurs, un moteur brushless, une hélice, un ESC, un récepteur et un émetteur. J'ai conçu la structure sur Canva et modélisé dans Fusion 360. L'avion est léger et vole bien, avec une autonomie d'environ 5 minutes." },
   "space-collector":{ title: "Space Collector",              description: "Petit jeu arcade développé en JavaScript pour la console Sprig. Collecte des objets dans l'espace et évite les obstacles !" },
@@ -110,6 +147,9 @@ function applyLang(lang) {
   document.querySelectorAll('.lang-btn').forEach(function(btn) {
     btn.textContent = lang === 'en' ? 'FR' : 'EN';
   });
+
+  // Re-render project tags so they follow current language.
+  renderProjectCardTags();
 }
 
 // ===============================================================================================================================================================
@@ -160,6 +200,34 @@ const PROJECT_TAGS = {
   "usb":             [["USB 2.0","hw"],                ["integrated circuits","hw"],           ["PCB Design","tool"]],
 };
 
+function getProjectTagLabel(label) {
+  var lang = window._currentLang || 'en';
+  var t = PROJECT_TAG_TRANSLATIONS[label];
+  if (!t) return label;
+  return t[lang] || t.en || label;
+}
+
+function renderProjectCardTags() {
+  var projects = document.querySelectorAll('.projects-grid .project');
+  if (!projects.length) return;
+
+  projects.forEach(function(project, idx) {
+    var key = PROJECT_KEYS[idx];
+    if (!key || !PROJECT_TAGS[key]) return;
+
+    var tagsEl = project.querySelector('.tags-list');
+    if (!tagsEl) {
+      tagsEl = document.createElement('div');
+      tagsEl.className = 'tags-list';
+      project.appendChild(tagsEl);
+    }
+
+    tagsEl.innerHTML = PROJECT_TAGS[key].map(function(t) {
+      return '<span class="tag tag-' + t[1] + '">' + getProjectTagLabel(t[0]) + '</span>';
+    }).join('');
+  });
+}
+
 
 // ============================================================
 // PROJECT META — domain & difficulty for filters
@@ -169,7 +237,7 @@ const PROJECT_META = {
   "space-collector":  { domain: ["software"],                       difficulty: "beginner" },
   "fan-reactor":      { domain: ["hardware"],                       difficulty: "beginner" },
   "electric-lighter": { domain: ["hardware"],                       difficulty: "beginner" },
-  "ttl-siren":        { domain: ["hardware"],                       difficulty: "intermediate" },
+  "ttl-siren":        { domain: ["hardware"],                       difficulty: "beginner" },
   "hackpad":          { domain: ["hardware", "software"],           difficulty: "intermediate" },
   "3d-rc-plane":      { domain: ["aerospace", "hardware"],          difficulty: "intermediate" },
   "apx-devboard":     { domain: ["hardware"],                       difficulty: "intermediate" },
@@ -319,7 +387,7 @@ function buildTagsHTML(key) {
   const tags = PROJECT_TAGS[key];
   if (!tags) return '';
   return '<div class="tags-list">' +
-    tags.map(function(t) { return '<span class="tag tag-' + t[1] + '">' + t[0] + '</span>'; }).join('') +
+    tags.map(function(t) { return '<span class="tag tag-' + t[1] + '">' + getProjectTagLabel(t[0]) + '</span>'; }).join('') +
     '</div>';
 }
 
@@ -394,18 +462,8 @@ window.addEventListener('DOMContentLoaded', function() {
   const modalBody = document.getElementById('modal-body');
   const modalClose = document.getElementById('modal-close');
 
-  // Inject tags into each project card
-  projects.forEach(function(project, idx) {
-    const key = PROJECT_KEYS[idx];
-    if (key && PROJECT_TAGS[key]) {
-      const tagsEl = document.createElement('div');
-      tagsEl.className = 'tags-list';
-      tagsEl.innerHTML = PROJECT_TAGS[key].map(function(t) {
-        return '<span class="tag tag-' + t[1] + '">' + t[0] + '</span>';
-      }).join('');
-      project.appendChild(tagsEl);
-    }
-  });
+  // Inject (or refresh) project tags in current language.
+  renderProjectCardTags();
 
   if (projects.length && modalBg && modalBody && modalClose) {
     projects.forEach(function(project, idx) {
