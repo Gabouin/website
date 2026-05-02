@@ -8,8 +8,8 @@
     </head>
     <body>
 
-        <!-- background with a binary effect (bro is not an hacker lmao) -->
-        <canvas id="binary-canvas"></canvas>
+        <!-- background with a binary effect (bro is not an hacker lmao)-->
+         <canvas id="binary-canvas"></canvas>
 
         <!-- page that inform that the website is not finished yet -->
         <div id="wip-splash">
@@ -23,176 +23,170 @@
                     <div id="wip-roadmap">
                         <p class="wip-roadmap-label" data-i18n="wip-roadmap-label">// things coming next</p>
                         <ul class="wip-roadmap-list">
-                            <li><span class="wip-roadmap-dot"></span><span data-i18n="wip-r1">Project photos &amp; better images</span></li>
-                            <li><span class="wip-roadmap-dot"></span><span data-i18n="wip-r2">Better overall colors</span></li>
-                            <li><span class="wip-roadmap-dot"></span><span data-i18n="wip-r3">Details for every project</span></li>
-                            <li><span class="wip-roadmap-dot"></span><span data-i18n="wip-r4">Demo videos for every project</span></li>
-                            <li><span class="wip-roadmap-dot"></span><span data-i18n="wip-r5">Improvement of the site structure</span></li>
-                            <li><span class="wip-roadmap-dot"></span><span data-i18n="wip-r6">More details about me</span></li>
-                            <li><span class="wip-roadmap-dot"></span><span data-i18n="wip-r7">Better renders of every project</span></li>
+                            <li><span class="wip-roadmap-dot"></span> <span data-i18n="wip-r1">Projects photos</span></li>
+                            <li><span class="wip-roadmap-dot"></span> <span data-i18n="wip-r2">More project details</span></li>
+                            <li><span class="wip-roadmap-dot"></span> <span data-i18n="wip-r3">New feature</span></li>
+                            <li><span class="wip-roadmap-dot"></span> <span data-i18n="wip-r4">Another upgrade</span></li>
+                            <li><span class="wip-roadmap-dot"></span> <span data-i18n="wip-r5">And much more...</span></li>
+                            <li><span class="wip-roadmap-dot"></span> <span data-i18n="wip-r6">Stay tuned!</span></li>
+                            <li><span class="wip-roadmap-dot"></span> <span data-i18n="wip-r7">Follow me on social media for updates</span></li>
                         </ul>
                     </div>
 
-                    <button id="wip-enter-btn" data-i18n="wip-enter">Enter anyway &rarr;</button>
+                    <button id="wip-enter-btn" data-i18n="wip-enter">Enter anyway</button>
                 </div>
             </div>
-        </div>
-        <div id="header">
-            <!-- navigation for desktop -->
-            <span id="nav-logo">GABIN TAVERNIER</span>
-            <nav id="nav-desktop">
-                <a href="index.html" class="nav-link active" data-i18n="nav-projects">Projects</a>
-                <a href="about.html" class="nav-link" data-i18n="nav-about">About</a>
-                <a href="skills.html" class="nav-link" data-i18n="nav-skills">Skills</a>
-            </nav>
-            <div id="contact-btn-wrap">
-                <a href="contact.html"><button id="contact-btn" data-i18n="nav-contact">Contact</button></a>
-                <button class="lang-btn">FR</button>
+        </div> 
+            <div id="header">
+                 <!-- navigation for desktop -->
+                <span id="nav-logo">GABIN TAVERNIER</span>
+                <nav id="desktop">
+                    <a href="index.html" class="nav-link active" data-i18n="nav-projects">Projects</a>
+                    <a href="about.html" class="nav-link" data-i18n="nav-about">About</a>
+                    <a href="skills.html" class="nav-link" data-i18n="nav-skills">Skills</a>
+                </nav>
+                <div id="contact-btn-wrap">
+                    <a href="contact.html"><button id="contact-btn" data-i18n="nav-contact">Contact</button></a>
+                    <button class="lang-btn">FR</button>
+                </div>
+                <!---navigation for mobile-->
+                <button id="hamburger" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <h1 id="name"> <div>GABIN TAVERNIER</div></h1>
+                <h3 id="description" data-i18n="mobile-subtitle"> Student, Maker, Aerospace enthusiast</h3>
+                <nav id="nav-dropdown">
+                    <a href="index.html" class="nav-link-active" data-i18n="nav-projects">Projects</a>
+                    <a href="about.html" class="nav-link" data-i18n="nav-about">About</a>
+                    <a href="skills.html" class="nav-link" data-i18n="nav-skills">Skills</a>
+                    <a href="contact.html" class="nav-link" data-i18n="nav-contact">Contact</a>
+                    <button class="lang-btn lang-btn-mobile">FR</button>
+                </nav>
             </div>
-            <!-- navigation for mobile -->
-            <button id="hamburger" aria-label="Menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <h1 id="name"> <div>GABIN TAVERNIER</div> </h1>
-            <h3 id="description" data-i18n="mobile-subtitle"> Student • Maker • Aerospace Enthusiast </h3>
-            <nav id="nav-dropdown">
-                <a href="index.html" class="nav-link active" data-i18n="nav-projects">Projects</a>
-                <a href="about.html" class="nav-link" data-i18n="nav-about">About</a>
-                <a href="skills.html" class="nav-link" data-i18n="nav-skills">Skills</a>
-                <a href="contact.html" class="nav-link" data-i18n="nav-contact">Contact</a>
-                <button class="lang-btn lang-btn-mobile">FR</button>
-            </nav>
-        </div>
 
-        <!-- hero section -->
-        <div id="hero">
-            <div id="hero-text">
-                <span class="greeting" data-i18n="greeting">Hi, I'm</span>
-                <h1>Gabin Tavernier</h1>
-                <span class="subtitle" data-i18n="hero-subtitle">Student &bull; Maker &bull; Aerospace Enthusiast</span>
-            </div>
-        </div>
-
-        <div id="scroll-down" onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})" style="cursor:pointer;">
-            <span data-i18n="scroll-down-txt">scroll down</span>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </div>
-
-        <h2 id="projects" data-i18n="projects-title">MY PROJECTS</h2>
-
-        <div id="project-filters">
-            <div class="filter-group">
-                <span class="filter-label" data-i18n="filter-domain">Domain</span>
-                <button class="filter-btn active" data-filter="domain" data-value="all" data-i18n="filter-all">All</button>
-                <button class="filter-btn" data-filter="domain" data-value="hardware" data-i18n="filter-hardware">Hardware</button>
-                <button class="filter-btn" data-filter="domain" data-value="software" data-i18n="filter-software">Software</button>
-                <button class="filter-btn" data-filter="domain" data-value="aerospace" data-i18n="filter-aerospace">Aerospace</button>
-            </div>
-            <div class="filter-group">
-                <span class="filter-label" data-i18n="filter-difficulty">Difficulty</span>
-                <button class="filter-btn active" data-filter="difficulty" data-value="all" data-i18n="filter-all">All</button>
-                <button class="filter-btn" data-filter="difficulty" data-value="beginner" data-i18n="filter-beginner">Beginner</button>
-                <button class="filter-btn" data-filter="difficulty" data-value="intermediate" data-i18n="filter-inter">Intermediate</button>
-                <button class="filter-btn" data-filter="difficulty" data-value="advanced" data-i18n="filter-advanced">Advanced</button>
-            </div>
-        </div>
-
-        <div class="projects-grid">
-            <!-- completed projects -->
-            <div class="project rc-plane-card" data-key="rc-plane">
-                <span class="done-badge" data-i18n="badge-done">✓ Completed</span>
-                <img src="images/gabin rc plane.png" alt="RC Plane Project" width="200" height="200" />
-                <p data-i18n="proj-rc-plane">Remote Control Plane</p>
-            </div>
-            <div class="project space-collector" data-key="space-collector">
-                <span class="done-badge" data-i18n="badge-done">✓ Completed</span>
-                <img src="images/sprig.png" alt="space collector game" width="300" height="200" />
-                <p data-i18n="proj-space">Space collector - arcade game</p>
-            </div>
-            <div class="project" data-key="fan-reactor">
-                <span class="done-badge" data-i18n="badge-done">✓ Completed</span>
-                <img src="images/fan plane reactor.png" alt="Fan Plane Reactor" width="200" height="200" />
-                <p data-i18n="proj-fan">Fan Plane Reactor</p>
-            </div>
-            <div class="project electric-lighter" data-key="electric-lighter">
-                <span class="done-badge" data-i18n="badge-done">✓ Completed</span>
-                <img src="images/el.png" alt="Electric Lighter" width="200" height="200" />
-                <p data-i18n="proj-lighter">Electric Lighter</p>
-            </div>
-            <div class="project ttl-siren" data-key="ttl-siren">
-                <span class="done-badge" data-i18n="badge-done">✓ Completed</span>
-                <img src="images/TTL.png" alt="TTL Siren" width="200" height="200" />
-                <p data-i18n="proj-ttl">TTL Siren</p>
-            </div>
-            <div class="project binary" data-key="binary">
-                <span class="done-badge" data-i18n="badge-done">✓ Completed</span>
-                <img src="images/binary.png" alt="Binary Ripple" width="200" height="200" />
-                <p data-i18n="proj-binary">Binary Ripple</p>
-            </div>
-            <div class="project lamped" data-key="lamped">
-                <span class="done-badge" data-i18n="badge-done">✓ Completed</span>
-                <img src="images/LAMPED.png" alt="Lamped" width="200" height="200" />
-                <p data-i18n="proj-lamped">Lamped</p>
-            </div> 
-            <!-- in production projects -->
-            <div class="project usb" data-key="usb">
-                <span class="prod-badge" data-i18n="badge-prod">⚡ In Production</span>
-                <img src="images/pcb usb.png" alt="USB HUB" width="200" height="200" />
-                <p data-i18n="proj-usb">USB HUB</p>
-            </div>
-            <div class="project hackpad" data-key="hackpad">
-                <span class="prod-badge" data-i18n="badge-prod">⚡ In Production</span>
-                <img src="images/rendu hackpad rbg.png" alt="HackPad - a custom macropad" width="230" height="160" />
-                <p data-i18n="proj-hackpad">HackPad - a custom macropad</p>
-            </div>
-            <div class="project rc-plane-3d" data-key="3d-rc-plane">
-                <span class="prod-badge" data-i18n="badge-prod">⚡ In Production</span>
-                <img src="images/3D plane.png" alt="3D Printed RC Plane" width="200" height="200" />
-                <p data-i18n="proj-3dplane">3D Printed RC Plane</p>
-            </div>
-            <!-- in development projects -->
-            <div class="project devboard" data-key="apx-devboard">
-                <span class="wip-badge" data-i18n="badge-wip">🚧 In Development</span>
-                <img src="images/devboard.png" alt="devboard" width="220" height="150" />
-                <p data-i18n="proj-devboard">APX Devboard - Custom Development Board</p>
-            </div>
-            <div class="project display" data-key="spotify-display">
-                <span class="wip-badge" data-i18n="badge-wip">🚧 In Development</span>
-                <img src="images/display.png" alt="spotify display" width="250" height="160" />
-                <p data-i18n="proj-display">Spotify Display - Real time Music controller</p>
-            </div>
-            <div class="project cubesat" data-key="cubesat">
-                <span class="wip-badge" data-i18n="badge-wip">🚧 In Development</span>
-                <img src="images/cubesat.png" alt="CubeSat Project" width="270" height="270" />
-                <p data-i18n="proj-cubesat">CubeSat Project</p>
-            </div>
-            <div class="project robotic-arm" data-key="robotic-arm">
-                <span class="wip-badge" data-i18n="badge-wip">🚧 In Development</span>
-                <img src="images/arm.png" alt="robotic arm" width="200" height="200" />
-                <p data-i18n="proj-robotic-arm">AI enhanced Robotic Arm</p>
-            </div>
-            <div class="project raspapi" data-key="launch-api">
-                <span class="wip-badge" data-i18n="badge-wip">🚧 In Development</span>
-                <img src="images/raspapi.png" alt="RaspAPI" width="200" height="200" />
-                <p data-i18n="proj-launchapi">Rocket Launch API</p>
+            <!---hero section-->
+            <div id="hero">
+                <div id="hero-text">
+                    <span class="greeting" data-i18n="greeting">Hi, I'm</span>
+                    <h1>Gabin Tavernier</h1>
+                    <span class="subtitle" data-i18n="hero-subtitle">Student, Maker, Aerospace enthusiast</span>
+                </div>
             </div>
             
+            <div id="scroll-down" onclick="document.getElementById('projects').scrollIntoView({behavior:'smooth'})"style="cursor:pointer;">
+                <span data-i18n="scroll-down-txt">Scroll down</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </div>
 
-        </div>
+            <h2 id="projects" data-i18n="projects-title">MY PROJECTS</h2>
 
-        <!-- project modal window -->
-        <div id="modal-bg" class="modal-bg" style="display:none;">
-            <div class="modal" id="modal-content">
-                <button class="modal-close" id="modal-close" aria-label="Close">&times;</button>
-                <div id="modal-body">
-                    <!-- project content goes here -->
+            <div id="projects-filters">
+                <div class="filter-group">
+                    <span class="filter-label" data-i18n="filter">Domain</span>
+                    <button class="filter-btn active" data-filter="domain" data-value="all" data-i18n="filter-all">All</button>
+                    <button class="filter-btn" data-filter="domain" data-value="hardware" data-i18n="filter-hardware">Hardware</button>
+                    <button class="filter-btn" data-filter="domain" data-value="software" data-i18n="filter-software">Software</button>
+                    <button class="filter-btn" data-filter="domain" data-value="aerospace" data-i18n="filter-aerospace">Aerospace</button>
+                </div>
+                <div class="filter-group">
+                    <span class="filter-label" data-i18n="filter-difficulty">Difficulty</span>
+                    <button class="filter-btn active" data-filter="difficulty" data-value="all" data-i18n="filter-all">All</button>
+                    <button class="filter-btn" data-filter="difficulty" data-value="beginner" data-i18n="filter-beginner">Beginner</button>
+                    <button class="filter-btn" data-filter="difficulty" data-value="intermediate" data-i18n="filter-intermediate">Intermediate</button>
+                    <button class="filter-btn" data-filter="difficulty" data-value="advanced" data-i18n="filter-advanced">Advanced</button> 
                 </div>
             </div>
-        </div>
 
-       <script src="script.js" defer></script> 
+            <div class="projects-grid">
+                <!---completed projects-->
+                <div class="project rc-plane-card" data-key="rc-plane">
+                    <span class="done-badge" data-i18n="badge-done">✓ Completed</span>
+                    <img src="images/gabin rc plane.png" alt="RC Plane Project" width="200" height="200" />
+                    <p data-i18n="proj-rc-plane">Remote Control Plane</p>
+                </div>
+                <div class="project space-collector" data-key="space-collector">
+                    <span class="done-badge" data-i18n="badge-done">✓ Completed</span>
+                    <img src="images/sprig.png" alt="space collector game" width="300" height="200" />
+                    <p data-i18n="proj-space-collector">Space Collector - arcade game</p>
+                </div>
+                <div class="project" data-key="fan-reactor">
+                    <span class="done-badge" data-i18n="badge-done">✓ Completed</span>
+                    <img src="images/fan plane reactor.png" alt="Fan Plane Reactor" width="200" height="200"/>
+                    <p data-i18n="proj-fan">Fan plane Reactor</p>
+                </div>
+                <div class="project electric-lighter" data-key="electric-lighter">
+                    <span class="done-badge" data-i18n="badge-done">✓ Completed</span>
+                    <img src="images/el.png" alt="Electric Lighter" width="200" height="200"/>
+                    <p data-i18n="proj-lighter">Electric Lighter</p>
+                </div>
+                <div class="project ttl-siren" data-key="ttl-siren">
+                    <span class="done-badge" data-i18n="badge-done">✓ Completed</span>
+                    <img src="images/TTL.png" alt="TTL Siren" width="200" height="200" />
+                    <p data-i18n="proj-ttl">TTL siren</p>
+                </div>
+                <div class="project binary" data-key="binary">
+                    <span class="done-badge" data-i18n="badge-done">✓ Completed</span>
+                    <img src="images/binary.png" alt="Binary Ripple" width="200" height="200"/>
+                    <p data-i18n="proj-binary">Binary Ripple</p>
+                </div>
+                <div class="project lamped" data-key="lamped">
+                    <span class="done-badge" data-i18n="badge-done">Completed</span>
+                    <img src="images/LAMPED.png" alt="Lamped" width="200" height="200"/>
+                    <p data-i18n="proj-lamped">Lamped</p>
+                </div>
+                <div class="project usb" data-key="usb">
+                    <span class="prod-badge" data-i18n="badge-prod">⚡ In production</span>
+                    <img src="images/usb_hub.png" alt="USB HUB" width="200" height="200"/>
+                    <p data-i18n="proj-usb">USB HUB</p>
+                </div>
+                <div class="project hackpad" data-key="hackpad">
+                    <span class="prod-badge" data-i18n="badge-prod">⚡ In production</span>
+                    <img src="images/rendu hackpad rbg.png" alt="hackpad - a custom macropad" width="230" height="160"/>
+                    <p data-i18n="proj-hackpad">Hackpad- a custom macropad</p>
+                </div>
+                <div class="project" data-key="3d-rc-plane">
+                    <span class="prod-badge" data-i18n="badge-prod">⚡ In production</span>
+                    <img src="images/3D plane.png.png" alt="3D RC Plane" width="200" height="200"/>
+                    <p data-i18n="proj-3d-rc-plane">3D printed RC Plane</p>
+                    </div>
+                <div class="project devboard" data-key="apx-devboard">
+                    <span class="prod-badge" data-i18n="badge-prod">⚡ In production</span>
+                    <img src="images/devboard.png" alt="devboard" width="200" height="200"/>
+                    <p data-i18n="proj-devboard">APX Devboard - Custom Development Board</p>
+                </div>
+                <div class="project cubesat" data-key="cubesat">
+                    <span class="wip-badge" data-i18n="badge-wip">🚧 In Development</span>
+                    <img src="images/cubesat.png" alt="CubeSat Project" width="270" height="270"/>
+                    <p data-i18n="proj-cubesat">CubeSat Project</p>
+                </div>
+                <div class="project robotic-arm" data-key="robotic-arm">
+                    <span class="wip-badge" data-i18n="badge-wip">🚧 In Development</span>
+                    <img src="images/arm.png" alt="robotic arm" width="200" height="200"/>
+                    <p data-i18n="proj-robotic-arm">AI enhanced Robotic Arm</p>
+                 </div>
+                 <div class="project raspapi" data-key="launch-api">
+                    <span class="wip-badge" data-i18n="badge-wip">🚧 In Development</span>
+                    <img src="images/raspapi.png" alt="RaspAPI" width="200" height="200"/>
+                    <p data-i18n="proj-launchapi">Rocket Launch API</p>
+                </div>
+
+            
+            </div>
+
+             <!-- project modal window-->
+            <div id="modaal-bg" class="modal-bg" style="display:none;">
+                <div class="modal" id="modal-content">
+                    <button class="modal-close" id="modal-close" aria-label="Close">&times;</button>
+                    <div id="modal-body">
+                        <!--project content here-->
+                    </div>
+                </div>
+            </div>
+        
+
+            <script src="script.js" defer></script>
 <footer style="
   margin-top: 60px;
   padding: 30px 20px;
@@ -200,11 +194,10 @@
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   font-size: 13px;
   color: rgba(255, 255, 255, 0.7);
-">
+  ">
   <p style="margin: 0;">
-    Made with love in Reunion Island • Gabin © 2026
-  </p>
-</footer>
+    Made with love in Reunion Island • Gabin Tavernier © 2026
+  </p>  
+</footer>                       
     </body>
 </html>
-

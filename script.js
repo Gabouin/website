@@ -324,7 +324,7 @@ const PROJECT_DETAILS = {
   "usb": {
     title: "USB Project",
     description: "Custom USB hub with 4 USB-A ports, designed to be compact and plug directly into the computer without extra cables thanks to a male USB connector. It includes overvoltage protection and one LED per port. In case of a short circuit, the corresponding LED turns off to indicate the source of the problem.",
-    images: ["images/usb.png"],
+    images: ["images/banner usb.png"],
     video: null,
     github: [{ url: "https://github.com/Gabouin/APX-USB-HUB", label: "GitHub" }],
     domain: ["hardware"],
@@ -333,7 +333,7 @@ const PROJECT_DETAILS = {
   "hackpad": {
     title: "HackPad",
     description: "Custom macropad with 6 switches, a rotary encoder (volume control), an OLED display (animations per key), and an RP2040 microcontroller. Can be used for different tasks while working. PCB designed in KiCad, enclosure designed in Fusion 360.",
-    images: ["images/banner hackpad.png", "images/pcb.hackpad.png"],
+    images: ["images/banner hackpad.png", "images/pcb hackpad.png"],
     video: null,
     github: [{ url: "https://github.com/Gabouin/Gab-s-Hackpad", label: "GitHub" }],
     domain: ["hardware", "software"],
