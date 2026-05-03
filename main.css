@@ -1519,4 +1519,10 @@ ul {
     .page-content {
         padding: 1.5rem 1.2rem;
     }
+
+}
+
+footer a,
+footer a:visited {
+    color: #00ff88;
 }
