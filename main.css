@@ -1,7 +1,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=VT323&family=Fira+Code:wght@300..700&family=Share+Tech+Mono&display=swap');
 
-/* ── Blinking cursor effect ── */
+
 @keyframes blink {
     0%, 100% { opacity: 1; }
     50%       { opacity: 0; }
@@ -49,7 +49,7 @@ html::-webkit-scrollbar-thumb:hover {
     z-index: -1;
 }
 
-/* ── WIP Full-page Splash ── */
+
 #wip-splash {
     position: fixed;
     inset: 0;
@@ -205,7 +205,6 @@ html::-webkit-scrollbar-thumb:hover {
     flex-shrink: 0;
 }
 
-/* Legend button */
 #legend-btn {
     position: fixed;
     bottom: 20px;
@@ -403,7 +402,7 @@ ul {
     box-sizing: border-box;
 }
 
-/* Hamburger button — mobile only */
+
 #hamburger {
     display: none;
     position: absolute;
@@ -434,7 +433,7 @@ ul {
     transition: transform 0.25s, opacity 0.2s;
 }
 
-/* Hamburger animation when open */
+
 #hamburger.open span:nth-child(1) {
     transform: translateY(7.5px) rotate(45deg);
 }
@@ -447,7 +446,7 @@ ul {
     transform: translateY(-7.5px) rotate(-45deg);
 }
 
-/* Dropdown menu */
+
 #nav-dropdown {
     display: none;
     flex-direction: column;
@@ -488,7 +487,7 @@ ul {
     font-weight: 700;
 }
 
-/* Page content (about, contact) */
+
 .page-content {
     max-width: 1100px;
     margin: 0 auto;
@@ -633,7 +632,7 @@ ul {
     z-index: 2;
 }
 
-/* ── Project filters ── */
+
 #project-filters {
     display: flex;
     flex-wrap: wrap;
@@ -840,7 +839,6 @@ ul {
     line-height: 1.5;
 }
 
-/* Style de la modale */
 .modal-bg {
     position: fixed;
     top: 0;
@@ -926,7 +924,7 @@ ul {
     color: #772626;
 }
 
-/* ── Skills page ── */
+
 .skills-grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -960,7 +958,7 @@ ul {
     transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, opacity 0.3s ease, filter 0.3s ease;
 }
 
-/* Dim other cards when one is hovered */
+
 .skills-grid:has(.skill-card:hover) .skill-card:not(:hover) {
     opacity: 0.35;
     filter: brightness(0.5);
@@ -1031,14 +1029,14 @@ ul {
     height: 100%;
 }
 
-/* Per-card accent colors */
+
 .skill-card--prog   { --accent: #818cf8; }
 .skill-card--hw     { --accent: #00ff88; }
 .skill-card--pcb    { --accent: #38bdf8; }
 .skill-card--soft   { --accent: #fbbf24; }
 .skill-card--domain { --accent: #fb923c; }
 
-/* Tags inside skill cards — colored per card */
+
 .skill-card .tag {
     background: #1a1a1a;
     border-radius: 6px;
@@ -1070,12 +1068,12 @@ ul {
     font-size: 0.66rem;
 }
 
-/* Section-based visual differentiation */
+
 .skill-card .tag[data-section] {
     opacity: 1;
 }
 
-/* First subsection slightly brighter */
+
 .skill-card .tag[data-section="langs"],
 .skill-card .tag[data-section="mcus"],
 .skill-card .tag[data-section="pcb"],
@@ -1083,7 +1081,7 @@ ul {
     opacity: 1;
 }
 
-/* Second subsection slightly dimmer */
+
 .skill-card .tag[data-section="tech"],
 .skill-card .tag[data-section="3d"] {
     opacity: 0.75;
@@ -1100,14 +1098,14 @@ ul {
 .skill-card--soft   .tag { background: #2e2308; color: #fcd34d; border-color: #3d3010; }
 .skill-card--domain .tag { background: #2c1a04; color: #fdba74; border-color: #3e260a; }
 
-/* Gray tags inherit muted accent per card */
+
 .skill-card--prog   .tag--gray { background: #14132e; color: #6366f1; border-color: #252350; }
 .skill-card--hw     .tag--gray { background: #122019; color: #54d992; border-color: #3fb877; }
 .skill-card--pcb    .tag--gray { background: #091828; color: #38bdf8; border-color: #122640; }
 .skill-card--soft   .tag--gray { background: #201904; color: #d97706; border-color: #33280a; }
 .skill-card--domain .tag--gray { background: #201200; color: #f97316; border-color: #301d06; }
 
-/* ── Tags ── */
+
 .tags-list {
     display: flex;
     flex-wrap: wrap;
@@ -1139,7 +1137,7 @@ ul {
 .tag-tool   { background: #161616; border: 1px solid #333; color: #666; }
 .tag-domain { background: #161616; border: 1px solid #333; color: #666; }
 
-/* ── Progress bar (in modal) ── */
+
 .progress-section {
     margin-top: 16px;
     padding-top: 14px;
@@ -1197,7 +1195,7 @@ ul {
 .step-current { background: #1c5a7c; color: #fff; }
 .step-todo    { background: #2a2a2a; color: #666; }
 
-/* ── Modal: images, video, links ── */
+
 .modal-images {
     display: flex;
     flex-direction: column;
@@ -1281,7 +1279,7 @@ ul {
     color: #fff;
 }
 
-/* ── Desktop nav elements ── */
+
 #nav-logo {
     font-family: 'VT323', monospace;
     font-size: 26px;
@@ -1364,7 +1362,7 @@ ul {
     transform: translateY(-1px);
 }
 
-/* ── Hero section ── */
+
 #hero {
     display: flex;
     align-items: center;
@@ -1426,7 +1424,7 @@ ul {
     letter-spacing: 0.05em;
 }
 
-/* ── Scroll down indicator ── */
+
 @keyframes bounce {
     0%, 100% { transform: translateY(0); }
     50%       { transform: translateY(6px); }
@@ -1458,7 +1456,7 @@ ul {
     opacity: 0.6;
 }
 
-/* ── Mobile overrides (≤768px) ── */
+
 @media (max-width: 768px) {
     #binary-canvas {
         display: none;
