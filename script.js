@@ -1,6 +1,6 @@
-﻿// ============================================================
+﻿
 // TRANSLATIONS from English to French. I made that because my family doesn't speak English and I wanted them to be able to understand the site.
-// ============================================================
+
 const TRANSLATIONS = {
   "nav-projects":      { en: "Projects",                fr: "Projets" },
   "nav-about":         { en: "About",                   fr: "À propos" },
@@ -165,15 +165,10 @@ function applyLang(lang) {
     btn.textContent = lang === 'en' ? 'FR' : 'EN';
   });
 
-  // Re-render project tags so they follow current language.
   renderProjectCardTags();
 }
 
-// ===============================================================================================================================================================
-// PROJECT CONFIG — That's where you can update the progress, steps, and tags for each project. It will automatically update the project cards and details modals.
-// ===============================================================================================================================================================
 
-// Order matches the project cards in index.html: Completed --> In Production --> In Development
 const PROJECT_KEYS = [
   "rc-plane", "space-collector", "fan-reactor", "electric-lighter", "ttl-siren", "binary", "lamped", "usb",
   "hackpad", "3d-rc-plane",
@@ -198,7 +193,6 @@ const PROJECT_CONFIG = {
   "usb":             { progress: 70, steps: ["Idea", "Schematic", "PCB Layout", "Fabrication", "Testing"],                   currentStep: 2 }
 };
 
-// Tag format: [label, category]  —  categories: lang | hw | fab | tool | domain
 const PROJECT_TAGS = {
   "rc-plane":        [["RC Electronics","hw"],      ["Aerodynamics","domain"],      ["Servo Control","hw"]],
   "space-collector": [["JavaScript","lang"],        ["Game Dev","domain"],          ["Bitmap","lang"]],
@@ -246,9 +240,7 @@ function renderProjectCardTags() {
 }
 
 
-// ============================================================
-// PROJECT META — domain & difficulty for filters
-// ============================================================
+
 const PROJECT_META = {
   "rc-plane":         { domain: ["aerospace", "hardware"],          difficulty: "intermediate" },
   "space-collector":  { domain: ["software"],                       difficulty: "beginner" },
@@ -479,7 +471,6 @@ window.addEventListener('DOMContentLoaded', function() {
   const modalBody = document.getElementById('modal-body');
   const modalClose = document.getElementById('modal-close');
 
-  // Inject (or refresh) project tags in current language.
   renderProjectCardTags();
 
   if (projects.length && modalBg && modalBody && modalClose) {
@@ -509,7 +500,6 @@ window.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // Hamburger menu toggle
   const hamburger = document.getElementById('hamburger');
   const navDropdown = document.getElementById('nav-dropdown');
 
@@ -528,16 +518,14 @@ window.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // Language toggle
   document.querySelectorAll('.lang-btn').forEach(function(btn) {
     btn.addEventListener('click', function() {
       applyLang(window._currentLang === 'fr' ? 'en' : 'fr');
     });
   });
-  // Init language from localStorage
+  
   applyLang(localStorage.getItem('lang') || 'en');
 
-  // ── Project filters ──────────────────────────────────────
   var activeFilters = { domain: 'all', difficulty: 'all' };
 
   function applyProjectFilters() {
@@ -563,9 +551,7 @@ window.addEventListener('DOMContentLoaded', function() {
       applyProjectFilters();
     });
   });
-  // ─────────────────────────────────────────────────────────
-
-  // Legend popup
+ 
   const legendBtn = document.getElementById('legend-btn');
   const legendPopup = document.getElementById('legend-popup');
 
@@ -582,7 +568,6 @@ window.addEventListener('DOMContentLoaded', function() {
   }
 });
 
-// Keep WIP splash dismissed for the current browser session
 (function() {
   var splash = document.getElementById('wip-splash');
   var btn = document.getElementById('wip-enter-btn');
@@ -599,7 +584,6 @@ window.addEventListener('DOMContentLoaded', function() {
   });
 })();
 
-// ── WIP roadmap toggle ──
 (function() {
   var btn = document.getElementById('wip-roadmap-btn');
   var panel = document.getElementById('wip-roadmap');
@@ -610,7 +594,6 @@ window.addEventListener('DOMContentLoaded', function() {
   });
 })();
 
-// Global binary reveal on mouse
 (function() {
   if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
@@ -624,28 +607,25 @@ window.addEventListener('DOMContentLoaded', function() {
   if (!ctx) return;
 
   var fontSize = 12;
-  var charW = fontSize * 0.6;  // approx monospace width
+  var charW = fontSize * 0.6; 
   var radius = 25;
   var trailMax = 40;
   var trail = [];
   var pointer = { x: -999, y: -999 };
   var lastMoveTime = 0;
   var fadeDelay = 300;
-  var resumeBoost = 1;     // multiplier that ramps 0→1 when resuming mid-fade
-  var resumeStart = 0;     // timestamp when movement resumed
-  var wasFading = false;    // was the effect fading when mouse moved again?
-  var rampUpDuration = 400; // ms to ramp back to full brightness
+  var resumeBoost = 1;     
+  var resumeStart = 0;     
+  var wasFading = false;  
+  var rampUpDuration = 400;
 
-  // Interpolate between two points so trail stays dense even at fast moves
   function addTrailPoint(x, y) {
-    // Detect resume mid-fade: capture current fade level
     var now = Date.now();
     var elapsed = now - lastMoveTime;
     if (elapsed > fadeDelay && !wasFading) {
       wasFading = true;
     }
     if (wasFading) {
-      // Compute what trailFade/globalFade were just before this move
       var oldTrailFade = Math.max(0, 1 - (elapsed - fadeDelay) / 800);
       var oldGlobalFade = elapsed > fadeDelay + 800
         ? Math.max(0, 1 - (elapsed - fadeDelay - 800) / 1200) : 1;
@@ -653,7 +633,6 @@ window.addEventListener('DOMContentLoaded', function() {
       resumeBoost = Math.max(0.01, resumeBoost);
       resumeStart = now;
       wasFading = false;
-      // Clear old trail points so they don't pop back
       trail.length = 0;
     }
 
@@ -674,7 +653,6 @@ window.addEventListener('DOMContentLoaded', function() {
     lastMoveTime = now;
   }
 
-  // Stable grid of real binary bytes
   var gridCols = 0, gridRows = 0, grid = [];
   function buildGrid() {
     gridCols = Math.ceil(window.innerWidth / charW) + 2;
@@ -709,18 +687,15 @@ window.addEventListener('DOMContentLoaded', function() {
       addTrailPoint(pointer.x, pointer.y);
     }
   }, { passive: true });
-  // Scroll counts as movement — shift trail by scroll delta to leave a trace
   var lastScrollY = window.scrollY || window.pageYOffset || 0;
   window.addEventListener('scroll', function() {
     var sy = window.scrollY || window.pageYOffset || 0;
     var dy = sy - lastScrollY;
     lastScrollY = sy;
     if (pointer.x < -900) return;
-    // Shift existing trail points so they appear to stick to the page
     for (var i = 0; i < trail.length; i++) {
       trail[i].y -= dy;
     }
-    // Add current pointer position as new point
     addTrailPoint(pointer.x, pointer.y);
   }, { passive: true });
 
@@ -728,7 +703,6 @@ window.addEventListener('DOMContentLoaded', function() {
     var now = Date.now();
     var elapsed = now - lastMoveTime;
 
-    // Ramp-up multiplier when resuming mid-fade
     var ramp = 1;
     if (resumeBoost < 1) {
       var rampElapsed = now - resumeStart;
@@ -736,22 +710,21 @@ window.addEventListener('DOMContentLoaded', function() {
       if (ramp >= 0.99) { resumeBoost = 1; ramp = 1; }
     }
 
-    // trailFade: trail behind cursor fades 1→0 over 800ms
     var trailFade = 1;
     if (elapsed > fadeDelay) {
       trailFade = Math.max(0, 1 - (elapsed - fadeDelay) / 800);
     }
-    // globalFade: cursor zone fades 1→0 over 1.2s, starts when trail is gone
+    
     var globalFade = 1;
     if (elapsed > fadeDelay + 800) {
       globalFade = Math.max(0, 1 - (elapsed - fadeDelay - 800) / 1200);
     }
 
-    // Apply ramp to both fades
+ 
     trailFade *= ramp;
     globalFade *= ramp;
 
-    // Clear trail when everything fully faded
+   
     if (trailFade <= 0 && globalFade <= 0) { trail.length = 0; }
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -760,9 +733,9 @@ window.addEventListener('DOMContentLoaded', function() {
     ctx.font = fontSize + 'px "Fira Code", monospace';
     ctx.textBaseline = 'top';
 
-    // For each cell, find max opacity from all trail points
+   
     var startCol = gridCols, endCol = 0, startRow = gridRows, endRow = 0;
-    // Compute bounding box of all trail points
+    
     for (var t = 0; t < trail.length; t++) {
       var r0 = radius + (t === trail.length - 1 ? 2 : 0);
       var sc = Math.max(0, Math.floor((trail[t].x - r0) / charW) - 1);
@@ -781,11 +754,9 @@ window.addEventListener('DOMContentLoaded', function() {
         var cx = c * charW + charW * 0.5;
         var cy = r * fontSize + fontSize * 0.5;
 
-        // Find best opacity from trail
         var bestOp = 0;
         for (var t = 0; t < trail.length; t++) {
-          var age = (t + 1) / trail.length; // 0→1
-          // Trail points fade with trailFade, newest point (cursor) fades with globalFade
+          var age = (t + 1) / trail.length;
           var pointFade = (t === trail.length - 1) ? globalFade : (age * trailFade);
           var dx = cx - trail[t].x;
           var dy = cy - trail[t].y;
@@ -811,7 +782,6 @@ window.addEventListener('DOMContentLoaded', function() {
   draw();
 })();
 
-// Binary rain on WIP splash
 (function() {
   var canvas = document.getElementById('wip-canvas');
   if (!canvas) return;
@@ -859,7 +829,6 @@ window.addEventListener('DOMContentLoaded', function() {
   }
   loop();
 
-  // Stop animation when splash is dismissed to save resources
   var wipBtn = document.getElementById('wip-enter-btn');
   if (wipBtn) {
     wipBtn.addEventListener('click', function() {
@@ -868,18 +837,14 @@ window.addEventListener('DOMContentLoaded', function() {
   }
 })();
 
-// ============================================================
-// FLOATING & DRAGGABLE SKILL TAGS WITH PHYSICS
-// ============================================================
+
 (function() {
-  // Only initialize on skills page
   if (!document.querySelector('.skills-grid')) return;
 
   const allTagsLists = document.querySelectorAll('.skill-card .tags-list');
   const tagPhysics = new Map();
   let animationId = null;
 
-  // Physics configuration
   const config = {
     minSpeed: 0.01,
     maxSpeed: 0.15,
@@ -895,7 +860,6 @@ window.addEventListener('DOMContentLoaded', function() {
     return direction * speed;
   }
 
-  // Initialize tags with physics for each tags-list
   allTagsLists.forEach(function(tagsList) {
     const tags = tagsList.querySelectorAll('.tag');
     const listPhysics = {
@@ -930,7 +894,7 @@ window.addEventListener('DOMContentLoaded', function() {
   });
 
 
-  // Physics update loop
+
   function updatePhysics() {
     tagPhysics.forEach(function(cardPhysics) {
       const container = cardPhysics.container;
@@ -956,18 +920,17 @@ window.addEventListener('DOMContentLoaded', function() {
         tagData.vx = Math.max(-config.maxSpeed, Math.min(config.maxSpeed, tagData.vx));
         tagData.vy = Math.max(-config.maxSpeed, Math.min(config.maxSpeed, tagData.vy));
 
-        // Apply velocity
         tagData.x += tagData.vx;
         tagData.y += tagData.vy;
 
-        // Boundary collisions - LEFT & RIGHT
+    
         if (tagData.x <= 0 && tagData.vx < 0) {
           tagData.x = 0;
           tagData.vx = -tagData.vx * config.bounceElasticity;
         }
         if (tagData.x + tagData.width >= containerWidth && tagData.vx > 0) {
           tagData.x = containerWidth - tagData.width;
-            // Boundary collisions - TOP & BOTTOM
+            
           tagData.vx = -tagData.vx * config.bounceElasticity;
         }
         if (tagData.y <= 0 && tagData.vy < 0) {
@@ -979,7 +942,7 @@ window.addEventListener('DOMContentLoaded', function() {
           tagData.vy = -tagData.vy * config.bounceElasticity;
         }
 
-        // Update position
+        
         tagData.element.style.left = tagData.x + 'px';
         tagData.element.style.top = tagData.y + 'px';
       });
@@ -990,7 +953,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
   updatePhysics();
 
-  // Cleanup on page unload
+  
   window.addEventListener('beforeunload', function() {
     if (animationId) {
       cancelAnimationFrame(animationId);
